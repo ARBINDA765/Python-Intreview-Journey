@@ -1,0 +1,122 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "fda0acf5-fae2-4225-bb27-ece60637923e",
+   "metadata": {},
+   "source": [
+    "Write a Python program to get the length of the input strings and count each character occurrence excluding spaces:\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "8a2da26c-4775-4da1-90dc-6d6c74fdc047",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Approach Solution-1\n",
+    "input_string=\"abc abc zx\"\n",
+    "from collections import Counter\n",
+    "counter=Counter(input_string)\n",
+    "def string_length_and_char_count(input_string):\n",
+    "    counter=Counter(input_string)\n",
+    "    total_length=[value for key,value in counter.items() if not key==\" \"]\n",
+    "    char_count=[{key,value}for key,value in counter.items() if not key==\" \"]\n",
+    "    return sum(total_length),char_count\n",
+    "    "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "ce01bb76-11e8-4457-ac79-c8f8024515a8",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "(8, [{2, 'a'}, {2, 'b'}, {2, 'c'}, {1, 'z'}, {1, 'x'}])"
+      ]
+     },
+     "execution_count": 2,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "input_string=\"abc abc zx\"\n",
+    "string_length_and_char_count(input_string)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "76ec3d7c-9607-4997-924e-c48b1965e4e7",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#Appraoch Solution 2\n",
+    "#without using counter\n",
+    "def string_length_and_char_count_1(input_string):\n",
+    "    char_count = {}\n",
+    "    length = 0\n",
+    "    for char in input_string.replace(\" \", \"\"):\n",
+    "        length += 1\n",
+    "        char_count[char] = char_count.get(char, 0) + 1\n",
+    "    return length, char_count"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "c276eba1-7446-4abd-a73a-9ecd240dd807",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "(8, {'a': 2, 'b': 2, 'c': 2, 'z': 1, 'x': 1})"
+      ]
+     },
+     "execution_count": 4,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "string_length_and_char_count_1(input_string)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "10f57f8e-b619-451b-95fc-25bfd941a4c5",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.12.3"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
